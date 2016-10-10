@@ -7,7 +7,6 @@ import java.util.Set;
 /**
  * Created by Ajay on 29-Sep-16.
  * Q: 1.1
- * Page: 73
  */
 public class Q1_1_UniqueCharacters {
     public static void main(String[] args) {
