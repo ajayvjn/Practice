@@ -1,4 +1,4 @@
-package Tricks.interfaceDemo;
+package Concepts.interfaceDemo;
 
 interface demoInterface {
 	String a = "hello";

@@ -1,4 +1,4 @@
-package Tricks;
+package Concepts;
 
 public class reverse_number_string {
 

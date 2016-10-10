@@ -1,4 +1,4 @@
-package Tricks;
+package Concepts;
 
 //Sorting a 2D array by last name (by first name if last name is same) without using any API.
 public class sort_lastname_firstname_without_api {

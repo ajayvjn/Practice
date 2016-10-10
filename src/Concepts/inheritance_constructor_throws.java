@@ -1,4 +1,4 @@
-package Tricks;
+package Concepts;
 
 import java.io.IOException;
 
@@ -11,9 +11,9 @@ public class inheritance_constructor_throws extends demo{
 
 	//Inheriting exception can be generic not specific
 
-	/*public Tricks.inheritance_constructor_throws(){
+	/*public Concepts.inheritance_constructor_throws(){
 	}*/
-	/*public Tricks.inheritance_constructor_throws() throws FileNotFoundException{
+	/*public Concepts.inheritance_constructor_throws() throws FileNotFoundException{
 	}*/
 
 	public inheritance_constructor_throws() throws IOException{

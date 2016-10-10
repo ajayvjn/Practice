@@ -1,11 +1,11 @@
-package Tricks;
+package Concepts;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /*If any letter or substring repeats immediately-Password not accepted
-	APPLE -		 Not accepted Tricks.A repeats
+	APPLE -		 Not accepted Concepts.A repeats
 	CUCUMBER -	 Nor Accepted CU repeats
 	APRICOT -	 Accepted*/
 
@@ -19,7 +19,7 @@ class PasswordBean implements Comparable<PasswordBean>{
 	}
 
 	/*@Override		if we implement Comparator
-	public int compare(Tricks.PasswordBean o1, Tricks.PasswordBean o2) {*/
+	public int compare(Concepts.PasswordBean o1, Concepts.PasswordBean o2) {*/
 
 	
 	@Override
@@ -42,7 +42,7 @@ public class Comparable_Password_Acceptance{
 			}
 		}
 		Collections.sort(l);
-		/*for(Tricks.PasswordBean b:l){
+		/*for(Concepts.PasswordBean b:l){
 			System.out.println(b.value);
 		}*/
 

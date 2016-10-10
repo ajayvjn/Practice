@@ -1,4 +1,4 @@
-package Tricks;
+package Concepts;
 
 public class method_calling_throught_specific_arguments {
 public static void main(String[] args) {

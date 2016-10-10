@@ -1,4 +1,4 @@
-package Tricks;
+package Concepts;
 
 public class RandomInt_Without_API implements Runnable{
 

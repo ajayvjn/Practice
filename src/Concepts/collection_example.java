@@ -1,4 +1,4 @@
-package Tricks;
+package Concepts;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,7 +23,7 @@ public class collection_example {
 		//***************************************************************
 		//Iterating a HashMap
 		Map<String, String> hm = new HashMap<String, String>();
-		hm.put("a", "Tricks.A");
+		hm.put("a", "Concepts.A");
 		hm.put("b", "B");
 		hm.put("c", "C");
 		//through keySet()
