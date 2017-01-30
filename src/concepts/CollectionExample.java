@@ -1,4 +1,4 @@
-package Concepts;
+package concepts;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class collection_example {
+public class CollectionExample {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
 		//***************************************************************
@@ -23,7 +23,7 @@ public class collection_example {
 		//***************************************************************
 		//Iterating a HashMap
 		Map<String, String> hm = new HashMap<String, String>();
-		hm.put("a", "Concepts.A");
+		hm.put("a", "concepts.A");
 		hm.put("b", "B");
 		hm.put("c", "C");
 		//through keySet()

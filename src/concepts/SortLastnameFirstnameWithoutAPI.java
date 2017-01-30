@@ -1,7 +1,7 @@
-package Concepts;
+package concepts;
 
-//Sorting a 2D array by last name (by first name if last name is same) without using any API.
-public class sort_lastname_firstname_without_api {
+//sorting a 2D array by last name (by first name if last name is same) without using any API.
+public class SortLastnameFirstnameWithoutAPI {
 	public static void main(String[] args) {
 		String [][] person = {
 				{"anuraj","vijayan"},

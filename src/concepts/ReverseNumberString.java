@@ -1,6 +1,6 @@
-package Concepts;
+package concepts;
 
-public class reverse_number_string {
+public class ReverseNumberString {
 
 	public static void main(String[] args) {
 		int number = 1234;

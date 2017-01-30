@@ -1,6 +1,6 @@
-package Concepts;
+package concepts;
 
-public class typecasting {
+public class Typecasting {
 	public static void main(String[] args) {
 		String a = "abc";
 		Object b = (Object) a;

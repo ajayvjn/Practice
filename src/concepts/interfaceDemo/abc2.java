@@ -1,4 +1,4 @@
-package Concepts.interfaceDemo;
+package concepts.interfaceDemo;
 
 interface demoInterface2{
 	int i=0;

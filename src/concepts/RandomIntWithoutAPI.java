@@ -1,12 +1,11 @@
-package Concepts;
+package concepts;
 
-public class RandomInt_Without_API implements Runnable{
+public class RandomIntWithoutAPI implements Runnable{
 
 	static int i=0;
 
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {		
-		Thread t = new Thread( new RandomInt_Without_API());
+		Thread t = new Thread( new RandomIntWithoutAPI());
 		t.start();		
 		try {
 			Thread.sleep(10);

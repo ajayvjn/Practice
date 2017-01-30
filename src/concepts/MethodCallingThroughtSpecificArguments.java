@@ -1,6 +1,6 @@
-package Concepts;
+package concepts;
 
-public class method_calling_throught_specific_arguments {
+public class MethodCallingThroughtSpecificArguments {
 public static void main(String[] args) {
 	callm("abc");
 	callm(new Long(3));
