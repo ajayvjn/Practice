@@ -1,13 +1,19 @@
 package algorithms;
 
 /**
- * Kadane's Algorithm for Maximum Sum Subarray Problem.
+ * Kadane's Algorithm
+ * Maximum Sum Subarray Problem - O(n)
+ *
+ * This algorithm handles all cases including all negative numbers in an array.
+ *
  * Created by Ajay on 2/24/17.
  */
 public class Kadane {
     public static void main(String[] args) {
         int arr[] = {1, -1, -2, 3, 1, -1, 2};
         System.out.println("---KADANE'S ALGORITHM---");
+
+        // Max Sum Subarray without index
         getMaxSubarray(arr);
     }
 
@@ -25,6 +31,6 @@ public class Kadane {
                 maxSA = maxSATemp;
             }
         }
-        System.out.println("Max Subarray: " + maxSA);
+        System.out.println("Max Sum Subarray: " + maxSA);
     }
 }
