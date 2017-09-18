@@ -64,12 +64,3 @@ public class MaxValConstantTime {
     }
 }
 
-class Node{
-    int val;
-    Node prevMax;
-    Node next;
-
-    Node(int val){
-        this.val = val;
-    }
-}

@@ -1,9 +1,9 @@
 package trees.bst;
 
 /**
- * Created by Ajay on 10/9/16.
+ * Created by Ajay on 8/30/17.
  */
-public class Node {
+class Node {
 
     Node left, right;
     int key;
