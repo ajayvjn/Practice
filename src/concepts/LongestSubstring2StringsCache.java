@@ -33,7 +33,8 @@ public class LongestSubstring2StringsCache {
                         cache[i][j] = cache[i-1][j-1] + 1;
                     }
 
-                    str = a.substring(i - cache[i][j] + 1, i + 1);
+                    if(str.length() < a.substring(i - cache[i][j] + 1, i + 1).length())
+                        str = a.substring(i - cache[i][j] + 1, i + 1);
                 }
             }
         }

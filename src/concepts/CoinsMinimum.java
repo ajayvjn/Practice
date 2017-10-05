@@ -7,7 +7,7 @@ package concepts;
  *  What kind of coin system should I use.
  *
  */
-public class MinimumCoins {
+public class CoinsMinimum {
     public static void main(String[] args) {
         int[] coins = { 25, 10, 5, 1 };
         int n = 32;
