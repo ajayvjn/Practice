@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class SumOf3Numbers {
     public static void main(String[] args) {
-        int[] n = {-1,-1,2,4,-1};
+        int[] n = {-1,-1,2,-4,-1, -1,  2};
         List<int[]> list = sum(n);
         for (int[] a: list){
             System.out.println(Arrays.toString(a));
@@ -26,7 +26,7 @@ public class SumOf3Numbers {
         List<int[]> result = new ArrayList<>();
         Arrays.sort(n);
 
-        for (int i = 0; i < n.length - 3; i++) {
+        for (int i = 0; i < n.length - 2; i++) {
             if(i==0 || n[i] > n[i-1]){
                 int start = i+1;
                 int end = n.length -1;

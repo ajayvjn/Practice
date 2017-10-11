@@ -2,7 +2,6 @@ package concepts;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Ajay on 10/3/17.
@@ -35,7 +34,6 @@ public class SumSubsetMatchingArray {
             arr.add(numbers[i]);
             sum(numbers, i, numbers[i], 18, arr);
         }
-
 
         for (ArrayList<Integer> l: list){
             System.out.println(Arrays.toString(l.toArray()));
