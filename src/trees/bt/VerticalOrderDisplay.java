@@ -20,6 +20,8 @@ import java.util.*;
  *  Display as required.
  *
  */
+
+
 public class VerticalOrderDisplay {
 
     private List<List<Integer>> verticalOrder(Node root) {
@@ -68,6 +70,37 @@ public class VerticalOrderDisplay {
         return res;
     }
 
+
+    /* RECURSIVE CODE */
+
+    private List<List<Integer>> verticalOrderRecursive(Node node) {
+
+        TreeMap<Integer,ArrayList<Integer>> m = new TreeMap<>();
+        int colTrace = 0;
+        verticalOrderRecursive(node, m, colTrace);
+
+        List<List<Integer>> res = new ArrayList<>();
+        for ( ArrayList<Integer> list: m.values()){
+            res.add(list);
+        }
+        return res;
+    }
+
+    private void verticalOrderRecursive(Node node, TreeMap<Integer,ArrayList<Integer>> m, int colTrace) {
+        if (node ==  null) return;
+
+        ArrayList<Integer> list = m.get(colTrace);
+
+        if (list == null){
+            list = new ArrayList<>();
+            m.put(colTrace, list);
+        }
+        list.add(node.key);
+
+        verticalOrderRecursive(node.left, m, colTrace - 1);
+        verticalOrderRecursive(node.right, m, colTrace + 1);
+    }
+
     public static void main(String[] args) {
         Node n1 = new Node(1);
         Node n2 = new Node(2);
@@ -107,9 +140,12 @@ public class VerticalOrderDisplay {
         n7.right = n15;
 
         List<List<Integer>> result = new VerticalOrderDisplay().verticalOrder(n1);
+        //List<List<Integer>> result = new VerticalOrderDisplay().verticalOrderRecursive(n1);
 
         for (List<Integer> list : result) {
             System.out.println(Arrays.toString(list.toArray()));
         }
     }
+
+
 }

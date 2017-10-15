@@ -39,6 +39,7 @@ public class LongestConsecutiveBranch {
         System.out.println(lcb.consecutive(n1));
     }
 
+
     private int consecutive(Node root) {
         if (root == null){
             return 0;
