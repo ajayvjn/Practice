@@ -21,15 +21,10 @@ public class Kadane {
 
         int maxSA = arr[0];
         int maxSATemp = arr[0];
-        int tempSum = 0;
 
         for (int i = 1; i < arr.length; i++) {
-            tempSum = maxSATemp + arr[i];
-            maxSATemp = tempSum > arr[i] ? tempSum : arr[i];
-
-            if (maxSA < maxSATemp) {
-                maxSA = maxSATemp;
-            }
+            maxSATemp = Math.max(maxSATemp + arr[i], arr[i]);
+            maxSA = Math.max(maxSA, maxSATemp);
         }
         System.out.println("Max Sum Subarray: " + maxSA);
     }

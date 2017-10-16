@@ -2,3 +2,5 @@
 .idea
 out
 *.DS_Store
+src/practice
+src/delete
