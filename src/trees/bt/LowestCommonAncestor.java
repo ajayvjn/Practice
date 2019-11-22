@@ -12,7 +12,7 @@ package trees.bt;
  *     8
  *
  * QUESTIONS
- *  What kind of data does this BST support?
+ *  What kind of data does this BT support?
  *  What to do in case of duplicate value? (NEED TO ADDRESS THIS)
  *
  */

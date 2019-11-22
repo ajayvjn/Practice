@@ -6,7 +6,8 @@ package concepts;
 public class LongestSubstringWithoutRepetition {
     public static void main(String[] args) {
         //String str = "aabcdefba";
-        String str = "ffabfcdefff";
+        //String str = "fcfabfcdefff"; // wrong. need to correct logic
+        String str = "fcfabfcdefff";
         System.out.println(checkLongestSubstring(str));
     }
 

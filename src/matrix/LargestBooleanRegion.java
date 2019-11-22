@@ -28,10 +28,7 @@ public class LargestBooleanRegion {
     }
 
     private int largestRegion(int[][] m, int i, int j) {
-        if (i < 0 || j < 0 || i >= m.length || j >= m[i].length) {
-            return 0;
-        }
-        if (m[i][j] == 0){
+        if (i < 0 || j < 0 || i >= m.length || j >= m[i].length || m[i][j] == 0) {
             return 0;
         }
 
@@ -45,6 +42,13 @@ public class LargestBooleanRegion {
             }
 
         }
+
+        // the above loop can be also dine like this
+        /*largestRegion(m, i-1, j);
+        largestRegion(m, i+1, j);
+        largestRegion(m, i, j-1);
+        largestRegion(m, i, j+1);*/
+
         return size;
     }
 }
