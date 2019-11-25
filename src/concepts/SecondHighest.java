@@ -1,5 +1,9 @@
 package concepts;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 /**
  * Created by Ajay on 27-Jun-16.
  */
@@ -23,5 +27,14 @@ public class SecondHighest {
     public static void main(String[] args) {
         int a[] = {1,0};
         System.out.println(secondHighest(a));
+
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder());
+        queue.offer(1);
+        queue.offer(2);
+        queue.offer(3);
+
+        Arrays.asList(queue.toArray());
+
     }
 }

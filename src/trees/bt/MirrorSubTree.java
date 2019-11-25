@@ -22,7 +22,7 @@ public class MirrorSubTree {
         n2.right = n5;
         n3.left = n6;
         n3.right = n7;
-        System.out.println(new MirrorSubTree().isMirror(n2, n3));
+        System.out.println(new MirrorSubTree().isMirror(n1.left, n1.right));
     }
 
     private boolean isMirror(Node n1, Node n2) {

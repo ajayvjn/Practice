@@ -1,4 +1,4 @@
-package concepts;
+package matrix;
 
 /**
  * Created by Ajay on 11/6/17.

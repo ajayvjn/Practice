@@ -19,6 +19,14 @@ import java.util.*;
  *
  *  Display as required.
  *
+ *                  1
+ *             /          \
+ *         2                 3
+ *      /       \        /          \
+ *    4          5      6            7
+ *   /   \   /     \   / \          /  \
+ *  8     9 10     11 12  13       14  15
+ *
  */
 
 
@@ -44,7 +52,7 @@ public class VerticalOrderDisplay {
             Node node = toVisit.poll();
 
             if (!colMap.containsKey(col)) {
-                colMap.put(col, new ArrayList<Integer>());
+                colMap.put(col, new ArrayList<>());
             }
 
             colMap.get(col).add(node.key);
@@ -75,26 +83,23 @@ public class VerticalOrderDisplay {
 
     private List<List<Integer>> verticalOrderRecursive(Node node) {
 
-        TreeMap<Integer,ArrayList<Integer>> m = new TreeMap<>();
+        TreeMap<Integer, ArrayList<Integer>> m = new TreeMap<>();
         int colTrace = 0;
         verticalOrderRecursive(node, m, colTrace);
 
         List<List<Integer>> res = new ArrayList<>();
-        for ( ArrayList<Integer> list: m.values()){
+        for (ArrayList<Integer> list : m.values()) {
             res.add(list);
         }
         return res;
     }
 
-    private void verticalOrderRecursive(Node node, TreeMap<Integer,ArrayList<Integer>> m, int colTrace) {
-        if (node ==  null) return;
+    private void verticalOrderRecursive(Node node, TreeMap<Integer, ArrayList<Integer>> m, int colTrace) {
+        if (node == null) return;
 
-        ArrayList<Integer> list = m.get(colTrace);
+        ArrayList<Integer> list = m.getOrDefault(colTrace, new ArrayList<>());
+        m.put(colTrace, list);
 
-        if (list == null){
-            list = new ArrayList<>();
-            m.put(colTrace, list);
-        }
         list.add(node.key);
 
         verticalOrderRecursive(node.left, m, colTrace - 1);
@@ -139,8 +144,8 @@ public class VerticalOrderDisplay {
         n7.left = n14;
         n7.right = n15;
 
-        List<List<Integer>> result = new VerticalOrderDisplay().verticalOrder(n1);
-        //List<List<Integer>> result = new VerticalOrderDisplay().verticalOrderRecursive(n1);
+        //List<List<Integer>> result = new VerticalOrderDisplay().verticalOrder(n1);
+        List<List<Integer>> result = new VerticalOrderDisplay().verticalOrderRecursive(n1);
 
         for (List<Integer> list : result) {
             System.out.println(Arrays.toString(list.toArray()));
