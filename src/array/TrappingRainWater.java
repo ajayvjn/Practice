@@ -17,14 +17,14 @@ public class TrappingRainWater {
             if (h[l] < h[r]) {
                 if (h[l] > maxL) {
                     maxL = h[l];
-                } else{
+                } else {
                     area += maxL - h[l];
                 }
                 l++;
             } else {
-                if (h[r] > maxL) {
+                if (h[r] > maxR) {
                     maxR = h[r];
-                } else{
+                } else {
                     area += maxR - h[r];
                 }
                 r--;
@@ -33,4 +33,5 @@ public class TrappingRainWater {
 
         return area;
     }
+
 }
