@@ -10,7 +10,7 @@ package algorithms;
  */
 public class Kadane {
     public static void main(String[] args) {
-        int arr[] = {-4, 1, -1, -2, 3, 1, -1, 2};
+        int[] arr = {-4, 1, -1, -2, 3, 1, -1, 2};
         System.out.println("---KADANE'S ALGORITHM---");
 
         // Max Sum Subarray without index
@@ -20,7 +20,6 @@ public class Kadane {
     }
 
     private static void getMaxSubarray(int[] arr) {
-
         int maxSA = arr[0];
         int maxSATemp = arr[0];
 
@@ -30,7 +29,6 @@ public class Kadane {
         }
         System.out.println("Max Sum Subarray: " + maxSA);
     }
-
 
     private static void getMaxSubarrayWithIndex(int[] arr) {
         int maxSA = arr[0];
