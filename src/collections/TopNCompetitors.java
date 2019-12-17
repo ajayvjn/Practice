@@ -1,17 +1,17 @@
 package collections;
 
 
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Amazon Echo has lots of competitors
  * Web crawler got list of reviews
- *
+ * <p>
  * Given list of reviews, list of competitors, N, return most frequently mentioned top N competitors in the reviews.
- *
+ * <p>
  * Clarifying questions:
  * 1) why are numCompetitors and numReviews inputs? we don't seem to use them for any useful comparison
  * 2) should a repeated mention in the same review count as one, or multiple mentions?
@@ -20,8 +20,6 @@ import java.util.stream.Stream;
  * 5) is case-sensitivity needed? (can two companies exist with the same name but different case?)
  * 6) what if a review positively mentions one competitor, and negatively mentions another? which one do we count?
  * do we need to add detections for this?
- *
- *
  */
 public class TopNCompetitors {
 
@@ -40,39 +38,38 @@ public class TopNCompetitors {
         reviews.add("fashionbeats has great services in the city");
         reviews.add("I am proud to have fashionbeats");
         reviews.add("mymarket has awesome services");
+        reviews.add("mymarket 2 has awesome services");
         reviews.add("Thanks Newshop for the quick delivery");
 
         // numCompetitors=6
         // topNCompetitors=2
 
-        process(6,2,6, competitors, reviews).forEach(System.out::println);
+        process(6, 2, 6, competitors, reviews).forEach(System.out::println);
     }
 
     /**
-     *
-     * @param numCompetitors number of competitors
+     * @param numCompetitors  number of competitors
      * @param topNCompetitors the number of Top competitors we are interested in after processing (if this is greater
      *                        than the number mentioned in reviews, show all reviewed(
-     * @param numReviews number of reviews
-     * @param competitors list of competitors
-     * @param reviews list of reviews
+     * @param numReviews      number of reviews
+     * @param competitors     list of competitors
+     * @param reviews         list of reviews
      * @return list of answers
-     *
+     * <p>
      * Space Complexity:
-     *  space here is O(c), where c the number of competitors, since we are only storing 'known' competitors. We do
-     *  stream this Map to a list, but only of the Keys which is still O(2c) = O(c)
-     *
-     *  Time Complexity:
-     *  O(r+c) - > for each review, check to see if any of the 'known competitors' is mentioned. We MUST loop over
-     *  all reviews, and worst case we loop over all competitors and find none.
-     *
-     *  Then to Stream the Map,
-     *  sort it by value -> O(log(n)) we just assume since this is abstracted away
-     *
-     *  O(r+c) + O(log(n))
-     *
+     * space here is O(c), where c the number of competitors, since we are only storing 'known' competitors. We do
+     * stream this Map to a list, but only of the Keys which is still O(2c) = O(c)
+     * <p>
+     * Time Complexity:
+     * O(r+c) - > for each review, check to see if any of the 'known competitors' is mentioned. We MUST loop over
+     * all reviews, and worst case we loop over all competitors and find none.
+     * <p>
+     * Then to Stream the Map,
+     * sort it by value -> O(log(n)) we just assume since this is abstracted away
+     * <p>
+     * O(r+c) + O(log(n))
      */
-    private static List<String> process(int numCompetitors,
+    /*private static List<String> process(int numCompetitors,
                                         int topNCompetitors,
                                         int numReviews,
                                         List<String> competitors,
@@ -97,5 +94,43 @@ public class TopNCompetitors {
                 .limit(topNCompetitors) //limit the stream to only the elements we need
                 .map(Map.Entry::getKey) // map each value back to its original key
                 .collect(Collectors.toList()); // collect and return the list
+    }*/
+    private static List<String> process(int numCompetitors, int topNCompetitors, int numReviews, List<String> competitors, List<String> reviews) {
+        Map<String, Integer> competitorsMap = new HashMap<>();
+        List<String> result = new ArrayList<>();
+        for (String s : reviews) {
+            String[] words = s.split(" ");
+            for (String word : words) {
+                if (competitors.contains(word.toLowerCase())) {
+                    competitorsMap.put(word, competitorsMap.getOrDefault(word, 0) + 1);
+                }
+            }
+        }
+
+        List<Competitor> competitorList = new ArrayList<>();
+        competitorsMap.forEach((k, v) -> competitorList.add(new Competitor(k, v)));
+
+        competitorList.sort((a, b) -> {
+            if (a.occurrences.equals(b.occurrences)) {
+                return a.name.compareTo(b.name);
+            } else {
+                return b.occurrences - a.occurrences;
+            }
+        });
+
+        for (int i = 0; i < topNCompetitors; i++) {
+            result.add(competitorList.get(i).name);
+        }
+        return result;
     }
+}
+
+class Competitor {
+    Competitor(String name, Integer occurrences) {
+        this.name = name;
+        this.occurrences = occurrences;
+    }
+
+    String name;
+    Integer occurrences;
 }
