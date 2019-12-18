@@ -9,6 +9,9 @@ package matrix;
  * {0, 0, 0, 0, 1}
  */
 public class LargestBooleanRegion {
+
+    int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
     public static void main(String[] args) {
         int M[][] = {{0, 0, 1, 1, 0}, {0, 0, 1, 1, 0}, {0, 1, 0, 0, 0}, {0, 0, 0, 0, 1}};
         System.out.println(new LargestBooleanRegion().findLargestRegion(M));
@@ -34,13 +37,9 @@ public class LargestBooleanRegion {
 
         m[i][j] = 0;
         int size = 1;
-        for (int k = i-1; k <= i + 1; k++) {
-            for (int l = j-1; l <= j+1; l++) {
-                if (i != k || j != l){
-                    size += largestRegion(m, k, l);
-                }
-            }
 
+        for (int[] direction : directions) {
+            size += largestRegion(m, i + direction[0], j + direction[1]);
         }
 
         // the above loop can be also dine like this

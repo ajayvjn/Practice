@@ -1,7 +1,6 @@
 package matrix;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,15 +32,15 @@ public class LongestSequence {
     }
 
     private ArrayList longestSequence(int[][] m, int i, int j, int value, ArrayList<Integer> list) {
-        if (i-1 < 0 || j-1 < 0 || i+1 >= m.length || j+1 >= m[i].length) {
+        if (i - 1 < 0 || j - 1 < 0 || i + 1 >= m.length || j + 1 >= m[i].length) {
             return null;
         }
 
         // top
-        if(m[i][j-1] < value){
-            list.add(m[i][j-1]);
-            List l = longestSequence(m, i, j-1, m[i][j-1], list);
-            if(l == null){
+        if (m[i][j - 1] < value) {
+            list.add(m[i][j - 1]);
+            List l = longestSequence(m, i, j - 1, m[i][j - 1], list);
+            if (l == null) {
                 return list;
             }
         } else {
@@ -49,10 +48,10 @@ public class LongestSequence {
         }
 
         //bottom
-        if(m[i][j+1] < value){
-            list.add(m[i][j+1]);
-            List l = longestSequence(m, i, j+1, m[i][j+1] , list);
-            if(l == null){
+        if (m[i][j + 1] < value) {
+            list.add(m[i][j + 1]);
+            List l = longestSequence(m, i, j + 1, m[i][j + 1], list);
+            if (l == null) {
                 return list;
             }
         } else {
@@ -60,20 +59,20 @@ public class LongestSequence {
         }
 
         // left
-        if(m[i-1][j] < value){
-            list.add(m[i-1][j]);
-            List l = longestSequence(m, i-1, j, m[i-1][j], list);
-            if(l == null){
+        if (m[i - 1][j] < value) {
+            list.add(m[i - 1][j]);
+            List l = longestSequence(m, i - 1, j, m[i - 1][j], list);
+            if (l == null) {
                 return list;
             }
         } else {
             list = new ArrayList<>();
         }
         //right
-        if(m[i+1][j] < value){
-            list.add(m[i+1][j]);
-            List l = longestSequence(m, i+1, j, m[i+1][j], list);
-            if(l == null){
+        if (m[i + 1][j] < value) {
+            list.add(m[i + 1][j]);
+            List l = longestSequence(m, i + 1, j, m[i + 1][j], list);
+            if (l == null) {
                 return list;
             }
         } else {

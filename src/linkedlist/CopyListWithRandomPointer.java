@@ -33,8 +33,8 @@ public class CopyListWithRandomPointer {
         // Third round: restore the original list, and extract the copy list.
         iter = head;
         RandomListNode pseudoHead = new RandomListNode(0);
-        RandomListNode copyNode;
         RandomListNode newList = pseudoHead;
+        RandomListNode copyNode;
 
         while (iter != null) {
             next = iter.next.next;

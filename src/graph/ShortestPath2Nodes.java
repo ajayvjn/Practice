@@ -65,17 +65,17 @@ public class ShortestPath2Nodes {
         Queue<Node> toVisit = new LinkedList<>();
         Map<Node, Node> visited = new HashMap<>();
 
-        toVisit.add(a);
+        toVisit.offer(a);
         visited.put(a, null);
 
         while (!toVisit.isEmpty()){
-            Node node = toVisit.remove();
+            Node node = toVisit.poll();
             if (node == b) break;
             List<Node> nodes = node.nodes;
 
             for (Node n : nodes) {
                 visited.put(n, node);
-                toVisit.add(n);
+                toVisit.offer(n);
             }
         }
 

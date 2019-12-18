@@ -1,10 +1,6 @@
 package matrix;
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 class BombEnemy {
 
     public static void main(String[] args) {
